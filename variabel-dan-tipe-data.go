@@ -19,4 +19,11 @@ func main() {
 	fmt.Println(nama, umur, kota, jumlah, persen, kata, des)
 	fmt.Println("Benar = ", true)
 	fmt.Println("Salah = ", false)
+
+	// fungsi string, menghitung jumlah karakter
+	fmt.Println(len("Fasikhuddin"))
+
+	// mengambil karakter pada posisi yang ditentukan
+	fmt.Println("Fasikhuddin"[0])
+	fmt.Println("Fasikhuddin"[3])
 }
