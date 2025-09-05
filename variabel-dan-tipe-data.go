@@ -8,9 +8,15 @@ func main() {
 
 	// cara 2: tanpa tipe (Go otomatis deteksi)
 	var umur = 41
+	var kata = "durian"
+	var des = 2.7
 
 	//cara 3: singkat (hanya di dalam funciton)
 	kota := "Indramayu"
+	jumlah := 24
+	persen := 2.5
 
-	fmt.Println(nama, umur, kota)
+	fmt.Println(nama, umur, kota, jumlah, persen, kata, des)
+	fmt.Println("Benar = ", true)
+	fmt.Println("Salah = ", false)
 }
