@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+func hitungLuasLingkaran(r float64) float64 {
+	return 3.14 * r * r
+}
+
 func main() {
 	var nama string
 	var umur int
@@ -14,4 +18,11 @@ func main() {
 	fmt.Scanln(&alamat)
 
 	fmt.Printf("Halo %s, umur kamu %d, alamat %s\n", nama, umur, alamat)
+
+	var jari float64
+	fmt.Println("masukkan jari-jari lingkaran: ")
+	fmt.Scanln(&jari)
+
+	luas := hitungLuasLingkaran(jari)
+	fmt.Printf("Luas lingkaran dengan jari-jari %.2f adalah %.2f\n", jari, luas)
 }
