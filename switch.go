@@ -6,7 +6,7 @@ func main() {
 	var angka int
 
 	fmt.Println("Masukkan angka kamu: ")
-	fmt.Scan(&angka)
+	fmt.Scanln(&angka)
 
 	switch angka {
 	case 1:
@@ -14,7 +14,7 @@ func main() {
 	case 2:
 		fmt.Println("Kamu masuk Selasa")
 	case 3:
-		fmt.Println("kamu masuk Rabu")
+		fmt.Println("Kamu masuk Rabu")
 	case 4:
 		fmt.Println("Kamu masuk Kamis")
 	case 5:
