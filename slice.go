@@ -42,4 +42,12 @@ func main() {
 	// artinya ambil sabun sikat, dan keranjang kosong
 	fmt.Println("Setelah hapus index 2:", keranjang)
 
+	hari := []string{}
+	hari = []string{"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Ahad"}
+
+	// 2 hari pertama
+	fmt.Println("Tampilkan hanya 2 hari pertama:", hari[:2])
+
+	// 3 hari terakhir
+	fmt.Println("Tampilkan hanya 3 hari terakhir:", hari[4:])
 }
