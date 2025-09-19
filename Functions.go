@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func add(x int, y int) int {
-	return x + y
-}
+//func add(x int, y int) int {
+//	return x + y
+//}
 
 func multiply(x int, y int, z int) int {
 	return x * y * z
@@ -42,5 +42,5 @@ func main() {
 	fmt.Scan(&y)
 
 	hasil := add(x, y)
-	fmt.printf("Hasil penjumlahan %d + %d = %d\n", x, y, hasil)
+	fmt.Printf("Hasil penjumlahan %d + %d = %d\n", x, y, hasil)
 }
