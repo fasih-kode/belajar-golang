@@ -19,16 +19,28 @@ import "fmt"
 
 func main() {
 	var a int
-	fmt.Println("Jumlah siswa: ")
-	fmt.Scanln(&a)
-
+	fmt.Println("Jumlah buku: ")
+	fmt.Scan(&a)
 	// buat slice kosong
-	var nama []string
+	var buku []string
 	for i := 0; i < a; i++ {
 		var b string
-		fmt.Printf("Siswa ke%d: ", i+1)
-		fmt.Scanln(&b)
-		nama = append(nama, b)
+		fmt.Printf("Buku ke-%d: ", i+1)
+		fmt.Scan(&b)
+		buku = append(buku, b)
 	}
-	fmt.Println("Daftar siswa:", nama)
+	fmt.Println("Daftar buku:", buku)
+}
+func main() {
+	var a int
+	fmt.Print("ada berapa angka?: ")
+	fmt.Scan(&a)
+
+	// buat slice dengan panjang a
+	angka := make([]int, a)
+	for i := 0; i < a; i++ {
+		fmt.Printf("Masukkan angka ke-%d:", i+1)
+		fmt.Scan(&angka[i]) // langsung masuk ke posisi slice
+	}
+	fmt.Println("Daftar angka:", angka)
 }
