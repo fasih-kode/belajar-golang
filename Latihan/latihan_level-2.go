@@ -53,7 +53,25 @@ func main() {
 				}
 			}
 		case "3":
+			var cari string
+			fmt.Print("\nMasukkan nama barang yang dicari: ")
+			fmt.Scan(&cari)
 
+			ditemukan := false
+			for _, barang := range daftarBarang {
+				if barang["nama"] == cari {
+					fmt.Println("Ditemukan!")
+					fmt.Println("Nama :", barang["nama"])
+					fmt.Println("Harga :", barang["harga"])
+					fmt.Println("Stok :", barang["stok"])
+					ditemukan = true
+					break
+				}
+			}
+
+			if !ditemukan {
+				fmt.Println("Maaf, barang", cari, "tidak ada di data")
+			}
 		}
 
 	}
