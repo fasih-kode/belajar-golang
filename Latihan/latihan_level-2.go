@@ -3,55 +3,59 @@ package main
 import "fmt"
 
 func main() {
-
 	daftarBarang := []map[string]string{}
 
-	for {
-		fmt.Println("========= Menu Toko Sederhana =========")
-		fmt.Println("1. Tambah Barang Baru")
-		fmt.Println("2. Lihat Daftar Barang")
-		fmt.Println("3. Cari Barang")
-		fmt.Println("4. Hapus Barang")
-		fmt.Println("5. Keluar")
+	fmt.Println("===== Menu Toko =====")
+	fmt.Println("1. Input Barang")
+	fmt.Println("2. Daftar Barang")
+	fmt.Println("3. Cari Barang")
+	fmt.Println("4. Hapus Barang")
+	fmt.Println("5. Keluar")
 
+	for {
 		var input string
-		fmt.Println("Pilih Nomor: ")
+		fmt.Print("Pilih Nomor: ")
 		fmt.Scan(&input)
 		switch input {
 		case "1":
-			var jumlah int
-			fmt.Print("Jumlah: ")
-			fmt.Scan(&jumlah)
-
-			for i := 0; i < jumlah; i++ {
+			var n int
+			fmt.Print("Jumlah Barang: ")
+			fmt.Scan(&n)
+			for i := 0; i < n; i++ {
 				var nama, harga, stok string
-				fmt.Print("Nama barang: ")
+				fmt.Print("Masukkan nama barang: ")
 				fmt.Scan(&nama)
-				fmt.Print("Harga barang: ")
+				fmt.Print("Masukkan harga barang: ")
 				fmt.Scan(&harga)
-				fmt.Print("stok: ")
+				fmt.Print("Masukkan stok barang: ")
 				fmt.Scan(&stok)
 
+				// buat map baru
 				barangBaru := map[string]string{
 					"nama":  nama,
 					"harga": harga,
 					"stok":  stok,
 				}
 				daftarBarang = append(daftarBarang, barangBaru)
-				fmt.Println("Barang berhasil ditambahkan", daftarBarang)
+				fmt.Println("Barang Berhasil Ditambahkan")
 			}
 		case "2":
-			if len(daftarBarang) == 0 {
-				fmt.Println("Belum ada barang")
-			} else {
 			fmt.Println("===== Daftar Barang =====")
-			for i, v := range daftarBarang {
-				fmt.Printf("Barang ke-[%v] = %v\n", i, v)
-				fmt.Println("Nama: ", v["nama"])
-				fmt.Println("Harga: ", v["harga"])
-				fmt.Println("Stok: ", v["stok"])
-				fmt.Println("=======================")
+			if len(daftarBarang) == 0 {
+				fmt.Println("Barang masih kosong")
+			} else {
+				for i, val := range daftarBarang {
+					fmt.Println("Barang yang ke-", i+1)
+					fmt.Println("Nama : ", val["nama"])
+					fmt.Println("Harga :", val["harga"])
+					fmt.Println("Stok :", val["stok"])
+					fmt.Println("=============================")
+				}
 			}
+		case "3":
+
 		}
+
 	}
+
 }
