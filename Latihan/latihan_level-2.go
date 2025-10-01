@@ -72,6 +72,36 @@ func main() {
 			if !ditemukan {
 				fmt.Println("Maaf, barang", cari, "tidak ada di data")
 			}
+		case "4":
+			var hapus string
+			fmt.Print("Masukkan barang yang akan dihapus: ")
+			fmt.Scan(&hapus)
+
+			ditemukan := false
+			indeksHapus := -1
+
+			// cari indeks barang yang akan dihapus
+
+			for i, barang := range daftarBarang {
+				if barang["nama"] == hapus {
+					indeksHapus = i
+					ditemukan = true
+					break
+				}
+			}
+			if ditemukan {
+				// hapus barang dari slice
+				daftarBarang = append(daftarBarang[:indeksHapus], daftarBarang[indeksHapus+1:]...)
+				fmt.Println("Barang", hapus, "Berhasil dihapus")
+			} else {
+				fmt.Println("Barang", hapus, "tidak ditemukan, tidak ada yang dihapus")
+			}
+		case "5":
+			fmt.Println("Keluar dari program...")
+			return
+		default:
+			fmt.Println("Pilihan tidak valid. Silakan pilih 1-5.")
+
 		}
 
 	}
