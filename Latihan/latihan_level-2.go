@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	daftarBarang := []map[string]string{}
@@ -10,7 +13,9 @@ func main() {
 	fmt.Println("2. Daftar Barang")
 	fmt.Println("3. Cari Barang")
 	fmt.Println("4. Hapus Barang")
-	fmt.Println("5. Keluar")
+	fmt.Println("5. Update Barang")
+	fmt.Println("6. Total Nilai Inventaris")
+	fmt.Println("7. Keluar")
 
 	for {
 		var input string
@@ -81,7 +86,6 @@ func main() {
 			indeksHapus := -1
 
 			// cari indeks barang yang akan dihapus
-
 			for i, barang := range daftarBarang {
 				if barang["nama"] == hapus {
 					indeksHapus = i
@@ -97,13 +101,66 @@ func main() {
 				fmt.Println("Barang", hapus, "tidak ditemukan, tidak ada yang dihapus")
 			}
 		case "5":
+			var update string
+			fmt.Print("Masukkan nama barang yang akan diupdate: ")
+			fmt.Scan(&update)
+
+			ditemukan := false
+			indeksUpdate := -1
+
+			// cari indeks barang yang akan diupdate
+			for i, barang := range daftarBarang {
+				if barang["nama"] == update {
+					indeksUpdate = i
+					ditemukan = true
+					break
+				}
+			}
+
+			if ditemukan {
+				var namaUpdate, hargaUpdate, stokUpdate string
+				fmt.Print("Masukkan nama barang baru: ")
+				fmt.Scan(&namaUpdate)
+				fmt.Print("Masukkan harga barang baru: ")
+				fmt.Scan(&hargaUpdate)
+				fmt.Print("Masukkan stok barang baru: ")
+				fmt.Scan(&stokUpdate)
+
+				// update data barang
+				daftarBarang[indeksUpdate]["nama"] = namaUpdate
+				daftarBarang[indeksUpdate]["harga"] = hargaUpdate
+				daftarBarang[indeksUpdate]["stok"] = stokUpdate
+
+				fmt.Println("Barang", update, "Berhasil diupdate")
+			} else {
+				fmt.Println("Barang", update, "tidak ditemukan, tidak ada yang diupdate")
+			}
+		case "6":
+			fmt.Println("\n===== Total Nilai Inventaris =====")
+			if len(daftarBarang) == 0 {
+				fmt.Println("Barang masih kosong")
+			} else {
+				totalBarang := len(daftarBarang)
+				totalNilai := 0
+
+				for _, barang := range daftarBarang {
+					harga, errHarga := strconv.Atoi(barang["harga"])
+					stok, errStok := strconv.Atoi(barang["stok"])
+
+					if errHarga == nil && errStok == nil {
+						totalNilai += harga * stok
+					}
+				}
+
+				fmt.Println("Total Jumlah Barang:", totalBarang, "jenis")
+				fmt.Println("Total Nilai Inventaris: Rp", totalNilai)
+				fmt.Println("==================================")
+			}
+		case "7":
 			fmt.Println("Keluar dari program...")
 			return
 		default:
-			fmt.Println("Pilihan tidak valid. Silakan pilih 1-5.")
-
+			fmt.Println("Pilihan tidak valid. Silakan pilih 1-7.")
 		}
-
 	}
-
 }
